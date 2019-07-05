@@ -3,6 +3,7 @@
   "version": "3.0.11",
   "description": "Native Angular Bootstrap Components",
   "private": true,
+  "files": ["dist"],
   "scripts": {
     "lite-server": "lite-server -c scripts/bs-config.js",
     "demo.gen-docs": "node scripts/docs/get-doc.js",
@@ -43,7 +44,8 @@
     "serve:dynamic": "node demo/dist/server.js",
     "build:client-and-server-bundles": "ng build -bh / --prod --env=server && ng build -bh / --prod --env=server --app 1 --output-hashing=false",
     "webpack:server": "webpack --config ./scripts/universal/webpack.server.config.js --progress --colors",
-    "configure-heroku": "node scripts/universal/configure-heroku.js"
+    "configure-heroku": "node scripts/universal/configure-heroku.js",
+    "postinstall": "mv ./dist/* ./ && rmdir ./dist"
   },
   "main": "bundles/ngx-bootstrap.umd.js",
   "module": "index.js",
